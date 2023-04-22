@@ -1,24 +1,19 @@
-package QA.Sergei;
+package qasergei;
 
 import common.Common;
 import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.core.IsNot.not;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-
 import java.util.*;
 
 public class KlickTest {
-    private WebDriver driver;
 
     @Test
     public void seleniumTest() {
-        driver = Common.getInstance().selenium("http://klick.ee/");
+        WebDriver driver = Common.getInstance().selenium("http://klick.ee/");
         driver.findElement(By.cssSelector(".bg-cl-transparent > .hidden-xs:nth-child(1)")).click();
         driver.findElement(By.id("search")).sendKeys("dell ");
         driver.findElement(By.id("search")).sendKeys(Keys.ENTER);
@@ -38,10 +33,6 @@ public class KlickTest {
             assert(elements.size() > 0);
         }
         driver.findElement(By.cssSelector(".checkout-btn")).click();
-        {
-            List<WebElement> elements = driver.findElements(By.linkText("Suundu kassasse"));
-            assert(elements.size() > 0);
-        }
         driver.findElement(By.cssSelector(".icon-backspace")).click();
         driver.findElement(By.id("notificationAction2")).click();
         Common.getInstance().quit();

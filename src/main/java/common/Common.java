@@ -8,21 +8,23 @@ import java.time.Duration;
 
 public class Common {
     private static final Common INSTANCE = new Common();
-    public static Common getInstance(){
+
+    public static Common getInstance() {
         return INSTANCE;
     }
+
     private WebDriver driver;
 
     public WebDriver selenium(String url) {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--remote-allow-origins=*", "--window-size=1920,1080");
-        WebDriver driver = new ChromeDriver(chromeOptions);
+        driver = new ChromeDriver(chromeOptions);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get(url);
         driver.manage().window().maximize();
+        driver.get(url);
         return driver;
     }
-        public void quit(){
+    public void quit() {
         driver.quit();
     }
 }
