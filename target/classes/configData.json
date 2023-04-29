@@ -1,0 +1,5 @@
+{
+  "browser": "CHROME",
+  "waitingTime": 8,
+  "incognitoMode":"--remote-allow-origins=*, --incognito, --window-size=1920,1080"
+}
